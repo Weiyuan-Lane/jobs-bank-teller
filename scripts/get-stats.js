@@ -1,5 +1,6 @@
 
 const WRITE_DATA_PATH = 'dumpdata';
+const MINIMUM_SAL_AMT = 200;
 
 /**
  *  All valid employment types:
@@ -135,13 +136,27 @@ function getNumericalStatsFrom(numberList) {
 }
 
 function getSalaryStatsFrom(entitiesData) { 
-    const minimumList = entitiesData.map((entityData) => {
+    const minimumList = entitiesData.filter((entityData) => {
+        return entityData.salary.minimum >= MINIMUM_SAL_AMT 
+            && entityData.salary.type.salaryType === 'Monthly';
+    }).map((entityData) => {
         return entityData.salary.minimum;
     });
-    const maximumList = entitiesData.map((entityData) => {
+    const maximumList = entitiesData.filter((entityData) => {
+        if (entityData.salary.maximum >= 100000) {
+            console.log(JSON.stringify(entityData));
+        }
+
+        return entityData.salary.maximum >= MINIMUM_SAL_AMT 
+            && entityData.salary.type.salaryType === 'Monthly';
+    }).map((entityData) => {
         return entityData.salary.maximum;
     });
-    const middleList = entitiesData.map((entityData) => {
+    const middleList = entitiesData.filter((entityData) => {
+        return entityData.salary.maximum >= MINIMUM_SAL_AMT
+            && entityData.salary.minimum >= MINIMUM_SAL_AMT 
+            && entityData.salary.type.salaryType === 'Monthly';
+    }).map((entityData) => {
         const middle = (entityData.salary.maximum - entityData.salary.minimum) / 2 + entityData.salary.minimum;
         return Math.ceil(middle);
     });
