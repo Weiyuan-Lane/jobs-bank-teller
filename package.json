@@ -1,0 +1,19 @@
+{
+  "name": "jobs-bank-teller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "get-data": "node scripts/get-jobs-dump.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weiyuan-Lane/jobs-bank-teller.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Weiyuan-Lane/jobs-bank-teller/issues"
+  },
+  "homepage": "https://github.com/Weiyuan-Lane/jobs-bank-teller#readme"
+}
