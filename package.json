@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines" : { 
+    "node" : ">=12.18.3" 
+  },
   "scripts": {
-    "get-data": "node scripts/get-jobs-dump.js"
+    "get-data": "node scripts/get-jobs-dump.js",
+    "get-stats": "node scripts/get-stats.js"
   },
   "repository": {
     "type": "git",
